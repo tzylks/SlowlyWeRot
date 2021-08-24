@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {useEffect} from 'react'
 
 
 const useStyles = makeStyles({
@@ -25,9 +26,15 @@ const useStyles = makeStyles({
 
 
 
-function AlbumCard({ album }) {
+function AlbumCard({ album, setFavorites, favorites }) {
 
     const classes = useStyles();
+
+    function onFavoriteClick(id) {
+        fetch(`http://localhost:9292/albums/${id}`)
+              .then((r) => r.json())
+              .then(data => setFavorites([...favorites, data]));
+    }
 
 
     return (
@@ -52,7 +59,7 @@ function AlbumCard({ album }) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" style={{backgroundColor: '#b9f6ca'}}>
+                <Button onClick={() => onFavoriteClick(album.id)} size="small" style={{backgroundColor: '#b9f6ca'}}>
                     Favorite
                 </Button>
             </CardActions>

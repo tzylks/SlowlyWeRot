@@ -1,6 +1,7 @@
 import AlbumsContainer from './AlbumsContainer'
 import NavBar from "./NavBar"
 import AddAlbum from "./AddAlbum"
+import Favorites from "./Favorites"
 import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import {ThemeProvider} from "@material-ui/core"
@@ -10,6 +11,7 @@ import theme from "./theme.js"
 function App() {
   
  const [albums, setAlbums] = useState([])
+ const [favorites, setFavorites] = useState([])
     
   useEffect(() => {
       fetch("http://localhost:9292/albums")
@@ -31,9 +33,14 @@ function App() {
             <AddAlbum setAlbums={setAlbums} />}
         />
     <Route
+          path='/favorites'
+          component={() =>
+            <Favorites favorites={favorites} />}
+        />
+    <Route
           path='/'
           component={() =>
-            <AlbumsContainer albums={albums}/>}
+            <AlbumsContainer albums={albums} setFavorites={setFavorites} favorites={favorites}/>}
         />
     </Switch>
     </div>

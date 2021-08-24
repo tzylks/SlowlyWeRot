@@ -3,7 +3,7 @@ import {Grid, Container} from '@material-ui/core'
 import AlbumCard from "./AlbumCard"
 
 
-function AlbumsContainer ({albums, setFavorites, favorites}) {
+function Favorites ({favorites}) {
 
     
 
@@ -12,9 +12,9 @@ function AlbumsContainer ({albums, setFavorites, favorites}) {
         <Container>
            {/* <div>{mappedAlbums}</div> */}
             <Grid container spacing={4} style={{marginTop: '50px'}}>
-                {albums.map(album => {
+                {favorites.map(favorite => {
                     return (<Grid item xs={12} md={6} lg={4}>
-                        <AlbumCard album={album} setFavorites={setFavorites} favorites={favorites}/>
+                        <AlbumCard favorite={favorite} />
                     </Grid> )
                 })}
             </Grid>
@@ -23,4 +23,4 @@ function AlbumsContainer ({albums, setFavorites, favorites}) {
     )
 }
 
-export default AlbumsContainer
+export default Favorites
