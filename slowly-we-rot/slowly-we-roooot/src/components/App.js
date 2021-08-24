@@ -20,6 +20,12 @@ function App() {
         .then(setAlbums);
     }, []);
 
+    useEffect(() => {
+      fetch("http://localhost:9292/user_favorites")
+        .then((r) => r.json())
+        .then(setFavorites);
+    }, []);
+
   function onDelete(id){
     fetch(`http://localhost:9292/albums/${id}`, {
       method: "DELETE",
