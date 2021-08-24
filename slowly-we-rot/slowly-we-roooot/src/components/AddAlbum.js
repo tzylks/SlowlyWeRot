@@ -2,11 +2,12 @@ import {useState} from "react";
 import { TextField, Container, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core"
 import {useHistory} from "react-router-dom";
-import NavBar from './NavBar'
 
-function AddAlbum({setAlbums}) {
+
+function AddAlbum({setAlbums, albums}) {
 
     const [formData, setFormData] = useState({
+        artist: "",
         name: "",
         length: "",
         rating: "",
@@ -23,8 +24,9 @@ function AddAlbum({setAlbums}) {
         e.preventDefault()
 
         const newPost = {
+            artist: formData.artist,
             name: formData.name,
-            length: formData.content,
+            length: formData.length,
             rating: formData.rating,
             img_url: formData.img_url
         }
@@ -40,7 +42,7 @@ function AddAlbum({setAlbums}) {
         fetch('http://localhost:9292/albums', config)
         .then(res => res.json())
         .then(data => {
-            setAlbums(data);
+            setAlbums([...albums, data]);
             history.push("/")
         })
         
@@ -50,6 +52,9 @@ function AddAlbum({setAlbums}) {
     return (
         <>
 
+               
+
+                <Container color="secondary">
                 <div
                     style={{
                         marginTop: "5%",
@@ -57,12 +62,13 @@ function AddAlbum({setAlbums}) {
                         textAlign: "center",
                         color: "#000",
                         justifyContent: "center",
+                        fontFamily: 'Metal Mania'
                     }}
                 >
                     <span
                         style={{
-                            backgroundColor: "#111",
-                            color: "#fff",
+                            backgroundColor: "#000",
+                            color: "#b9f6ca",
                             padding: "18px",
                             fontSize: "25px",
                             letterSpacing: "10px",
@@ -72,19 +78,36 @@ function AddAlbum({setAlbums}) {
                     >
                         Add Album</span>
                 </div>
-
-                <Container>
                 <form className="form"
                     onSubmit={onSubmitForm}
                 >
                     <Grid container spacing={4}>
-                        <Grid item xs={12}
+                    <Grid item xs={12}
                         style={{ 
                             background: "white", 
                             textAlign: "center", 
                             marginLeft: "auto", 
                             marginRight: "auto", 
                             marginTop: "10vh" 
+                        }}
+                        >
+                            <TextField
+                                fullWidth
+                                label="Arist"
+                                id="artist"
+                                variant="outlined"
+                                required
+                                value={formData.artist}
+                                onChange={onChangeForm}
+                            />
+                        </Grid>
+                        <Grid item xs={12}
+                        style={{ 
+                            background: "white", 
+                            textAlign: "center", 
+                            marginLeft: "auto", 
+                            marginRight: "auto", 
+                            
                         }}
                         >
                             <TextField
@@ -158,12 +181,9 @@ function AddAlbum({setAlbums}) {
                                 value={formData.image_url}
                                 onChange={onChangeForm}
                             />
-
                         </Grid>
-
-
-                        <Button type="submit" variant="contained" color="secondary" className="form__custom-button" style={{ marginLeft: "auto",
-                    marginRight: "auto" }}>
+                        <Button type="submit" variant="contained" color="primary" className="form__custom-button" style={{ marginLeft: "auto",
+                    marginRight: "auto", marginTop: "30px", marginBottom: "30px" }}>
                             Sumbit Album
                         </Button>
 

@@ -1,23 +1,24 @@
-import {useEffect, useState} from 'react'
-import {Grid, Container} from '@material-ui/core'
+import {Grid, Container, Box} from '@material-ui/core'
 import AlbumCard from "./AlbumCard"
 
 
-function AlbumsContainer ({albums, setFavorites, favorites}) {
+function AlbumsContainer ({albums, setFavorites, favorites, onDelete}) {
 
     
 
     return (
         <>
-        <Container>
+        <Container style={{whiteSpace: "noWrap"}} >
            {/* <div>{mappedAlbums}</div> */}
-            <Grid container spacing={4} style={{marginTop: '50px'}}>
+           <Box style={{overflow: 'auto', whiteSpace: "noWrap"}}>
+            <Grid container spacing={5} style={{marginTop: '50px', marginBottom: '50px'}} wrap="nowrap">
                 {albums.map(album => {
-                    return (<Grid item xs={12} md={6} lg={4}>
-                        <AlbumCard album={album} setFavorites={setFavorites} favorites={favorites}/>
+                    return (<Grid item xs={4} md={3} lg={4} style={{ display: "inline-block"}}>
+                        <AlbumCard album={album} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} />
                     </Grid> )
                 })}
             </Grid>
+            </Box>
         </Container>
         </>
     )

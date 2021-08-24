@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_07_27_154533) do
 
   create_table "albums", force: :cascade do |t|
     t.string "name"
+    t.string "artist"
     t.string "length"
     t.integer "rating"
     t.string "img_url"
@@ -22,6 +23,11 @@ ActiveRecord::Schema.define(version: 2021_07_27_154533) do
   create_table "user_albums", force: :cascade do |t|
     t.integer "user_id"
     t.integer "album_id"
+    t.string "artist"
+    t.string "name"
+    t.integer "rating"
+    t.string "length"
+    t.string "img_url"
     t.index ["album_id"], name: "index_user_albums_on_album_id"
     t.index ["user_id"], name: "index_user_albums_on_user_id"
   end

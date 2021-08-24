@@ -7,4 +7,4 @@ use Rack::JSONBodyParser
 run ApplicationController 
 
 # any additional controlers we want to use in our application must be added with the `use` method. If we forget to do this, then routes defined inside the DogsController won't be accessible in our local web server.
-use DogsController
+use AlbumsController

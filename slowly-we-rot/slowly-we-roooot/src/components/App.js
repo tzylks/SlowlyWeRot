@@ -8,6 +8,7 @@ import {ThemeProvider} from "@material-ui/core"
 import theme from "./theme.js"
 
 
+
 function App() {
   
  const [albums, setAlbums] = useState([])
@@ -19,10 +20,20 @@ function App() {
         .then(setAlbums);
     }, []);
 
+  function onDelete(id){
+    fetch(`http://localhost:9292/albums/${id}`, {
+      method: "DELETE",
+    })
+  
+    const filteredAlbums = albums.filter(album => album.id !== id)
+    setAlbums(filteredAlbums)
+  } 
+
+
   
   return (
    <>
-   
+   <div style={{backgroundColor: "#b9f6ca"}}>
    <ThemeProvider theme={theme}>
     <div style={{backgroundColor: "#b9f6ca"}}>
    <NavBar />
@@ -30,7 +41,7 @@ function App() {
     <Route
           path='/addalbum'
           component={() =>
-            <AddAlbum setAlbums={setAlbums} />}
+            <AddAlbum albums={albums} setAlbums={setAlbums}/>}
         />
     <Route
           path='/favorites'
@@ -40,12 +51,12 @@ function App() {
     <Route
           path='/'
           component={() =>
-            <AlbumsContainer albums={albums} setFavorites={setFavorites} favorites={favorites}/>}
+            <AlbumsContainer albums={albums} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete}/>}
         />
     </Switch>
     </div>
     </ThemeProvider>
-    
+    </div>
    </>
   );
 }
