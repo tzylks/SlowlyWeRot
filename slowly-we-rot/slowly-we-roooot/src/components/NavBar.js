@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import BlurOnIcon from '@material-ui/icons/BlurOn';
+import { NavLink } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,13 +31,14 @@ function NavBar() {
         <AppBar position="sticky" >
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+            <BlurOnIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" color="secondary" className={classes.title}>
             Slowly We Rot
           </Typography>
-          <Button color="inherit">Favorites</Button>
-          <Button color="inherit">Add Album</Button>
+          <Button component={NavLink} to='/' color="secondary">Home</Button>
+          <Button color="secondary">Favorites</Button>
+          <Button component={NavLink} to='/addalbum' color="secondary">Add Album</Button>
         </Toolbar>
       </AppBar>
       

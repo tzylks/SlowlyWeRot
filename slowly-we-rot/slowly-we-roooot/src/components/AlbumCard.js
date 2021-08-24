@@ -15,8 +15,12 @@ const useStyles = makeStyles({
         maxWidth: 345,
     },
     media: {
-        height: 140,
+        height: 240,
     },
+    colored: {
+        backgroundColor: "#000",
+        color: "#fff"
+    }
 });
 
 
@@ -28,14 +32,14 @@ function AlbumCard({ album }) {
 
     return (
         <>
-        <Card className={classes.root}>
+        <Card className={classes.colored}>
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/contemplative-reptile.jpg"
+                    image={album.img_url}
                     title="Contemplative Reptile"
                 />
-                <CardContent>
+                <CardContent color="secondary">
                     <Typography gutterBottom variant="h5" component="h2">
                         {album.name}
                     </Typography>
@@ -48,7 +52,7 @@ function AlbumCard({ album }) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" style={{backgroundColor: '#b9f6ca'}}>
                     Favorite
                 </Button>
             </CardActions>

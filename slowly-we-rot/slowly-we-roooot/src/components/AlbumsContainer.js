@@ -3,15 +3,9 @@ import {Grid, Container} from '@material-ui/core'
 import AlbumCard from "./AlbumCard"
 
 
-function AlbumsContainer () {
+function AlbumsContainer ({albums}) {
 
-    const [albums, setAlbums] = useState([])
     
-    useEffect(() => {
-        fetch("http://localhost:9292/albums")
-          .then((r) => r.json())
-          .then(setAlbums);
-      }, []);
 
     return (
         <>
