@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_07_27_154533) do
     t.string "name"
     t.string "length"
     t.integer "rating"
+    t.string "img_url"
   end
 
   create_table "user_albums", force: :cascade do |t|
