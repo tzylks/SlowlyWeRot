@@ -85,10 +85,10 @@ function AlbumCard({ album, setFavorites, favorites, onDelete }) {
                             {album.name}
                         </Typography>
                         <Typography variant="body2" color="secondary" component="p">
-                            {album.length}
+                            Album Length: {album.length}
                         </Typography>
                         <Typography variant="body2" color="secondary" component="p">
-                            {emojis()}
+                            Scale of Metal: {emojis()}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
