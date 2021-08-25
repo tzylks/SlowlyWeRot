@@ -22,6 +22,15 @@ class AlbumsController < ApplicationController
       album.to_json
   end
 
+  delete '/user_favorites/:id' do
+      # find the review using the ID
+      album = UserAlbum.find(params[:id])
+      # delete the review
+      album.destroy
+      # send a response with the deleted review as JSON
+      album.to_json
+  end
+
   get '/user_favorites' do
    User.first.user_albums.all.to_json
   end

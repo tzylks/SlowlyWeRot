@@ -1,5 +1,7 @@
-Album.destroy_all
-User.destroy_all
+# UserAlbum.destroy_all
+# User.destroy_all
+# Album.destroy_all
+
 
 
 users = ['Tim', 'Tonya', 'Trevor', 'Jake', 'Larry']
