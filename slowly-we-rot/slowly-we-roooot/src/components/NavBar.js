@@ -9,8 +9,9 @@ import { InputBase } from '@material-ui/core'
 import BlurOnIcon from '@material-ui/icons/BlurOn';
 import SearchIcon from '@material-ui/icons/Search';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react'
-
+import AlbumIcon from '@material-ui/icons/Album';
+import LoyaltySharpIcon from '@material-ui/icons/LoyaltySharp';
+import LibraryMusicSharpIcon from '@material-ui/icons/LibraryMusicSharp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function NavBar({search, setSearch}) {
+function NavBar({ search, setSearch }) {
 
 
   const classes = useStyles();
@@ -77,45 +78,28 @@ function NavBar({search, setSearch}) {
           Slowly We Rot
         </Typography>
         <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-        <InputBase classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }} placeholder="Search Albums" value={search} onChange={onChangeSearch}
-         />
-         </div>
-        <Button component={NavLink} to='/' color="secondary">Home</Button>
-        <Button component={NavLink} to='/favorites' color="secondary">Favorites</Button>
-        <Button component={NavLink} to='/addalbum' color="secondary">Add Album</Button>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <InputBase classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }} placeholder="Search Albums" value={search} onChange={onChangeSearch}
+          />
+        </div>
+        <NavLink to='/albums'>
+          <AlbumIcon color="secondary" style={{paddingRight: "15px"}} />
+        </NavLink>
+        <NavLink to='/favorites'>
+          <LoyaltySharpIcon color="secondary" style={{paddingRight: "15px"}}/>
+        </NavLink>
+        <NavLink to="/addalbum">
+          <LibraryMusicSharpIcon color="secondary" style={{paddingRight: "15px"}}/>
+        </NavLink>
       </Toolbar>
     </AppBar>
 
   )
 }
-
-{/* <SearchBar
-  style={{
-    marginTop: "20px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "80%"
-  }}
-  value={search.value}
-  onCancelSearch={
-    () => {
-      setPageNumber(1);
-      setSearch({ value: "" });
-      setNewsData([]);
-    }
-  }
-  onRequestSearch={
-    (newValue) => {
-      setPageNumber(1);
-      setSearch({ value: newValue })
-    }
-  }
-/> */}
 
 export default NavBar

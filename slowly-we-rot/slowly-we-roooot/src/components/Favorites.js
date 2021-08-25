@@ -17,7 +17,7 @@ function Favorites({ favorites, onDeleteFavorite }) {
                     <Box style={{ overflow: 'auto', whiteSpace: "noWrap" }}>
                         <Grid container spacing={10} style={{ marginTop: '50px', marginBottom: '50px' }} wrap="nowrap">
                             {favorites.map(album => {
-                                return (<Grid item xs={12} md={6} lg={4}>
+                                return (<Grid key={album.id} item xs={12} md={6} lg={4}>
                                     <FavCard album={album} onDeleteFavorite={onDeleteFavorite} />
                                 </Grid>)
                             })}
@@ -28,4 +28,4 @@ function Favorites({ favorites, onDeleteFavorite }) {
             )
 }
 
-            export default Favorites
+export default Favorites

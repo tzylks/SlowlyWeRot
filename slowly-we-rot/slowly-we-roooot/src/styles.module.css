@@ -1,0 +1,17 @@
+.svg {
+    width: 350px;
+    padding-bottom: 50px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 77vh;
+    justify-content: center;
+  }
+
+  .small {
+    float: right;
+  }
+  

@@ -7,6 +7,9 @@ import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from "@material-ui/core"
 import theme from "./theme.js"
+import Spring from './Spring'
+import Deck from "./CardsDrag.tsx"
+
 
 
 
@@ -71,9 +74,14 @@ function App() {
                   <Favorites favorites={favorites} onDeleteFavorite={onDeleteFavorite} />}
               />
               <Route
-                path='/'
+                path='/albums'
                 component={() =>
                   <AlbumsContainer albums={albumsToDisplay} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} />}
+              />
+               <Route
+                path='/'
+                component={() =>
+                  <Deck />}
               />
             </Switch>
             <Footer stye={{bottom: 0}} />

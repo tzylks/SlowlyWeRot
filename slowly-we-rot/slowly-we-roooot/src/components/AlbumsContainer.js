@@ -13,7 +13,7 @@ function AlbumsContainer ({albums, setFavorites, favorites, onDelete}) {
            <Box style={{overflow: 'auto', whiteSpace: "noWrap"}}>
             <Grid container spacing={5} style={{marginTop: '50px', marginBottom: '50px'}} wrap="nowrap">
                 {albums.map(album => {
-                    return (<Grid item xs={4} md={3} lg={4} style={{ display: "inline-block"}}>
+                    return (<Grid item key={album.id} xs={4} md={3} lg={4} style={{ display: "inline-block"}}>
                         <AlbumCard album={album} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} />
                     </Grid> )
                 })}

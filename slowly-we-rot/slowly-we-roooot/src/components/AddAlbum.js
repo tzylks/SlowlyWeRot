@@ -43,7 +43,7 @@ function AddAlbum({setAlbums, albums}) {
         .then(res => res.json())
         .then(data => {
             setAlbums([...albums, data]);
-            history.push("/")
+            history.push("/albums")
         })
         
 
@@ -62,7 +62,8 @@ function AddAlbum({setAlbums, albums}) {
                         textAlign: "center",
                         color: "#000",
                         justifyContent: "center",
-                        fontFamily: 'Metal Mania'
+                        fontFamily: 'Metal Mania',
+                        backgroundColor: 'black'
                     }}
                 >
                     <span
@@ -80,10 +81,12 @@ function AddAlbum({setAlbums, albums}) {
                 </div>
                 <form className="form"
                     onSubmit={onSubmitForm}
+                    style={{color: 'black'}}
                 >
-                    <Grid container spacing={4}>
+                    <Grid container spacing={4} color="primary">
                     <Grid item xs={12}
                         style={{ 
+                            color: "black",
                             background: "white", 
                             textAlign: "center", 
                             marginLeft: "auto", 

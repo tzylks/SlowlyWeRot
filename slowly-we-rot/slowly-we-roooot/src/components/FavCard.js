@@ -1,12 +1,9 @@
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import {Button} from '@material-ui/core'
-import toasty from 'toasty';
+
 
 function FavCard({album, onDeleteFavorite}) {
-
-    let t = toasty();
     
-
     return (
         <Flippy
         color="primary"
@@ -29,7 +26,7 @@ function FavCard({album, onDeleteFavorite}) {
              <h2>{album.name}</h2>
              <h3>Length: {album.length}</h3>
              <Button onClick={() => onDeleteFavorite(album.id)} size="small" style={{ backgroundColor: '#b9f6ca' }}>
-                        Send Back to Hell
+                    Send Back to Hell
              </Button>
         </BackSide>
     </Flippy>

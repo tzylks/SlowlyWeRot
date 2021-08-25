@@ -8,9 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Flippy, { FrontSide, BackSide } from 'react-flippy';
-
-
 
 const useStyles = makeStyles({
     root: {
@@ -26,8 +23,6 @@ const useStyles = makeStyles({
 
     },
 });
-
-
 
 function AlbumCard({ album, setFavorites, favorites, onDelete }) {
 
@@ -75,7 +70,7 @@ function AlbumCard({ album, setFavorites, favorites, onDelete }) {
                     <CardMedia
                         className={classes.media}
                         image={album.img_url}
-                        title="Contemplative Reptile"
+                        title="album cover"
                     />
                     <CardContent color="secondary">
                         <Typography gutterBottom variant="h4" component="h2">

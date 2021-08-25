@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import BlurOnIcon from '@material-ui/icons/BlurOn';
 import { NavLink } from 'react-router-dom';
+import GitHubIcon from '@material-ui/icons/GitHub';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +37,7 @@ function Footer() {
           <Typography variant="h6" color="secondary" className={classes.title} style={{justifyContent: 'center', marginRight: 'auto'}}>
             Github
           </Typography>
+          <IconButton onClick={() => {window.location.href = "https://github.com/tzylks";}}><GitHubIcon color="secondary" fontSize="small" /></IconButton>
           <Button component={NavLink} to='/' color="secondary">Home</Button>
           <Button component={NavLink} to='/favorites' color="secondary">Favorites</Button>
           <Button component={NavLink} to='/addalbum' color="secondary">Toasty</Button>
