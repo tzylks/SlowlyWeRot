@@ -37,7 +37,7 @@ function Footer() {
           </Typography>
           <Button component={NavLink} to='/' color="secondary">Home</Button>
           <Button component={NavLink} to='/favorites' color="secondary">Favorites</Button>
-          <Button component={NavLink} to='/addalbum' color="secondary">Add Album</Button>
+          <Button component={NavLink} to='/addalbum' color="secondary">Toasty</Button>
         </Toolbar>
       </AppBar>
 

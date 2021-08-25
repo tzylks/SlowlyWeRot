@@ -1,7 +1,12 @@
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import {Button} from '@material-ui/core'
+import toasty from 'toasty';
 
 function FavCard({album, onDeleteFavorite}) {
+
+    let t = toasty();
+    
+
     return (
         <Flippy
         color="primary"

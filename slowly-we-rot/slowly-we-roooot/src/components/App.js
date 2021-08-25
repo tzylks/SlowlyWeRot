@@ -14,6 +14,7 @@ function App() {
 
   const [albums, setAlbums] = useState([])
   const [favorites, setFavorites] = useState([])
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:9292/albums")
@@ -45,6 +46,9 @@ function App() {
     setFavorites(filteredFavorites)
   }
 
+  const albumsToDisplay = albums.filter((album) =>
+    album.name.toLowerCase().includes(search.toLowerCase())
+  );
 
 
 
@@ -54,7 +58,7 @@ function App() {
       <div style={{ backgroundColor: "#b9f6ca" }}>
         <ThemeProvider theme={theme}>
           <div style={{ backgroundColor: "#b9f6ca" }}>
-            <NavBar />
+            <NavBar search={search} setSearch={setSearch} />
             <Switch>
               <Route
                 path='/addalbum'
@@ -69,7 +73,7 @@ function App() {
               <Route
                 path='/'
                 component={() =>
-                  <AlbumsContainer albums={albums} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} />}
+                  <AlbumsContainer albums={albumsToDisplay} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} />}
               />
             </Switch>
             <Footer stye={{bottom: 0}} />
