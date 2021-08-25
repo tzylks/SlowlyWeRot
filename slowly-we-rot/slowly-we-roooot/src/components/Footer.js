@@ -38,9 +38,6 @@ function Footer() {
             Github
           </Typography>
           <IconButton onClick={() => {window.location.href = "https://github.com/tzylks";}}><GitHubIcon color="secondary" fontSize="small" /></IconButton>
-          <Button component={NavLink} to='/' color="secondary">Home</Button>
-          <Button component={NavLink} to='/favorites' color="secondary">Favorites</Button>
-          <Button component={NavLink} to='/addalbum' color="secondary">Toasty</Button>
         </Toolbar>
       </AppBar>
 

@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
 
 const cards = [
-  'https://upload.wikimedia.org/wikipedia/en/f/f5/RWS_Tarot_08_Strength.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/5/53/RWS_Tarot_16_Tower.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/9/9b/RWS_Tarot_07_Chariot.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/db/RWS_Tarot_06_Lovers.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/thumb/8/88/RWS_Tarot_02_High_Priestess.jpg/690px-RWS_Tarot_02_High_Priestess.jpg',
-  'https://upload.wikimedia.org/wikipedia/en/d/de/RWS_Tarot_01_Magician.jpg',
+  "https://blogimg.goo.ne.jp/user_image/76/2c/378b1493ac71b47389b65bdd8909006d.jpg",
+  'https://f4.bcbits.com/img/0009666121_10.jpg',
+  "https://media.pitchfork.com/photos/5929a0fb13d197565213850b/1:1/w_600/7e252f9a.jpg",
+  "https://img.discogs.com/hlJBVk1BbDzCCAZbyWMIcZJ9TRU=/fit-in/600x615/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-823469-1523384332-3216.jpeg.jpg",
+  "https://pbs.twimg.com/media/DekNnHTXkAMlzHD.jpg",
+  'https://f4.bcbits.com/img/a2645270153_10.jpgS',
 ]
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
@@ -40,7 +40,7 @@ function Deck() {
       setTimeout(() => {
         gone.clear()
         api.start(i => to(i))
-      }, 600)
+      }, 3000)
   })
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return (
@@ -55,6 +55,7 @@ function Deck() {
           />
         </animated.div>
       ))}
+      <p style={{marginLeft: "40vw", marginRight: "auto", paddingTop: "35vh", fontFamily: 'Metal Mania', fontSize: '54px'}}>Slowly We Rot</p>
       </div>
     </>
   )
