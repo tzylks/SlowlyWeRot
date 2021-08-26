@@ -18,8 +18,7 @@
 
   .container1 {
     background: rgba(185, 246, 202);
-    cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39,
-      auto;
+    /* cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto; */
     height: 77vh;
     padding-bottom: 10px;
     

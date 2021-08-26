@@ -66,7 +66,7 @@ function NavBar({ search, setSearch }) {
 
   return (
     <div style={{cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto;"}}>
-    <AppBar position="sticky" style={{cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto;"}} >
+    <AppBar position="sticky">
       <Toolbar>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <BlurOnIcon />

@@ -13,7 +13,7 @@ const theme = createTheme({
         },
         typography: {
             fontFamily: 'Metal Mania'
-        }
+        },       
 }
 )
 

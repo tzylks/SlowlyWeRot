@@ -2,6 +2,7 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import {Button} from '@material-ui/core'
 import { fadeIn } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 const styles = {
@@ -21,7 +22,7 @@ function FavCard({album, onDeleteFavorite}) {
         flipOnHover={true} // default false
         flipOnClick={true} // default false
         flipDirection="horizontal" // horizontal or vertical
-        style={{ width: '400px', height: '400px', marginBottom: '55px'}} /// these are optional style, it is not necessary
+        style={{ width: '400px', height: '400px', marginBottom: '13px'}} /// these are optional style, it is not necessary
     >
         <FrontSide
             style={{
@@ -33,13 +34,13 @@ function FavCard({album, onDeleteFavorite}) {
         </FrontSide>
         <BackSide
             variant="main"
-            style={{ backgroundColor: "black", color: "white", fontFamily: 'Metal Mania', textAlign: 'center' }}>
+            style={{ backgroundColor: "black", color: "white", fontFamily: 'Metal Mania', textAlign: 'center', paddingTop: "10vh", border: "solid 10px" }}>
              <h1>{album.artist}</h1>
              <h2>{album.name}</h2>
              <h3>Length: {album.length}</h3>
-             <Button onClick={() => onDeleteFavorite(album.id)} size="small" style={{ backgroundColor: '#b9f6ca' }}>
-                    Send Back to Hell
-             </Button>
+             <Tooltip title="Permanently remove album" arrow style={{color: "black"}}>
+                <Button onClick={() => onDeleteFavorite(album.id)} size="small" style={{ backgroundColor: '#b9f6ca' }}>Send Back to Hell</Button>
+            </Tooltip>
         </BackSide>
     </Flippy>
     </div>

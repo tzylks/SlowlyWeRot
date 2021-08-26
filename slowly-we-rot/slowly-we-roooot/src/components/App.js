@@ -7,7 +7,6 @@ import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from "@material-ui/core"
 import theme from "./theme.js"
-import Spring from './Spring'
 import Deck from "./CardsDrag.tsx"
 import ReactAudioPlayer from 'react-audio-player';
 import audio from "../audio.mp3"
@@ -67,7 +66,7 @@ function App() {
 
   return (
     <>
-      <div style={{ cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39" }}>
+      <div style={{ cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 32 32" }}>
         <ThemeProvider theme={theme}>
           <div style={{ backgroundColor: "rgba(185, 246, 202, 1)"}}>
             <NavBar search={search} setSearch={setSearch} />

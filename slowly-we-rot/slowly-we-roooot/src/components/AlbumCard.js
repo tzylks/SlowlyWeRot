@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { fadeIn } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 const useStyles = makeStyles({
@@ -36,15 +37,15 @@ const styles = {
 function AlbumCard({ album, setFavorites, favorites, onDelete, open, setOpen }) {
     const classes = useStyles();
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    // const handleClickOpen = () => {
+    //     setOpen(true);
+    // };
 
 
-    function handleClickClose(callback, id) {
-        callback(id)
-        setOpen(false)
-    }
+    // function handleClickClose(callback, id) {
+    //     callback(id)
+    //     setOpen(false)
+    // }
 
 
     function onFavoriteClick(id) {
@@ -94,28 +95,32 @@ function AlbumCard({ album, setFavorites, favorites, onDelete, open, setOpen }) 
                         image={album.img_url}
                         title="album cover"
                     />
-                    <CardContent color="secondary">
-                        <Typography gutterBottom variant="h4" component="h2">
+                    <CardContent>
+                        <Typography gutterBottom variant="h4" component="h2" color="secondary">
                             {album.artist}
                         </Typography>
                         <Typography gutterBottom variant="h5" component="h2">
                             {album.name}
                         </Typography>
-                        <Typography variant="body2" color="secondary" component="p">
+                        <Typography variant="body2"  component="p">
                             Album Length: {album.length}
                         </Typography>
-                        <Typography variant="body2" color="secondary" component="p">
+                        <Typography variant="body2" component="p">
                             Scale of Metal: {emojis()}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
+                <Tooltip title="Add this item to favorites" arrow style={{color: "black"}}>
                     <Button onClick={() => onFavoriteClick(album.id)} size="small" style={{ backgroundColor: '#b9f6ca' }}>
                         Favorite
                     </Button>
+                </Tooltip>
+                <Tooltip title="Permanently remove album" arrow style={{color: "black"}}>
                     <Button onClick={() => onDelete(album.id)} size="small" style={{ backgroundColor: '#b9f6ca' }}>
                         Delete
                     </Button>
+                </Tooltip>
                 </CardActions>
             </Card>
             </div>

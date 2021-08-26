@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto;
+  cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 32 32, auto;
   background: white;
 }
 
@@ -33,4 +33,11 @@ a:visited { text-decoration: none; color:black; }
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+#hammy {
+  color: rgba(185, 246, 202, 1);
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
