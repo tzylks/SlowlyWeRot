@@ -2,6 +2,19 @@ import { useState } from "react";
 import { TextField, Container, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core"
 import { useHistory } from "react-router-dom";
+import { merge, fadeIn } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+
+const styles = {
+    bounce: {
+      animation: 'x 5s',
+      animationName: Radium.keyframes(fadeIn, 'fadeIn'),
+      
+    }
+  }
 
 
 function AddAlbum({ setAlbums, albums }) {
@@ -53,7 +66,8 @@ function AddAlbum({ setAlbums, albums }) {
         <>
 
 
-
+        <StyleRoot>
+        <div className="test" style={styles.bounce}>
             <Container color="primary">
                 <div
                     style={{
@@ -64,19 +78,23 @@ function AddAlbum({ setAlbums, albums }) {
                         justifyContent: "center",
                         fontFamily: 'Metal Mania',
                         backgroundColor: 'black',
+                        height: "80px",
+                        borderRadius: "10px"
                         
                     }}
                 >
                     <span
                         style={{
                             backgroundColor: "",
+                            opacity: "1",
                             color: "white",
                             padding: "18px",
-                            fontSize: "100px",
+                            fontSize: "130px",
                             letterSpacing: "40px",
                             marginLeft: "auto",
                             marginRight: "auto",
-                            lineHeight: "100px"
+                            lineHeight: "70px",
+                            paddingBottom: "100px"
                         }}
                     >
                         Add Album</span>
@@ -207,6 +225,8 @@ function AddAlbum({ setAlbums, albums }) {
                     </Grid>
                 </form>
             </Container>
+            </div>
+        </StyleRoot>
 
         </>
 

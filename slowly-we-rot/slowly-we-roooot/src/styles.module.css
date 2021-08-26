@@ -17,7 +17,7 @@
   
 
   .container1 {
-    background: #b9f6ca;
+    background: rgba(185, 246, 202);
     cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39,
       auto;
     height: 77vh;
@@ -38,15 +38,15 @@
   
   .deck > div {
     background-color: black;
-    background-size: auto 80%;
+    background-size: auto 98%;
     background-repeat: no-repeat;
     background-position: center center;
     width: 45vw;
     max-width: 500px;
     height: 85vh;
-    max-height: 570px;
+    max-height: 500px;
     will-change: transform;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
   }
   

@@ -1,21 +1,33 @@
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import {Button} from '@material-ui/core'
+import { fadeIn } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 
+
+const styles = {
+    bounce: {
+      animation: 'x 4s',
+      animationName: Radium.keyframes(fadeIn, 'fadeIn')
+    }
+  }
 
 function FavCard({album, onDeleteFavorite}) {
     
     return (
+        <StyleRoot>
+        <div className="test" style={styles.bounce}>
         <Flippy
         color="primary"
         flipOnHover={true} // default false
         flipOnClick={true} // default false
         flipDirection="horizontal" // horizontal or vertical
-        style={{ width: '400px', height: '400px', marginBottom: '55px', }} /// these are optional style, it is not necessary
+        style={{ width: '400px', height: '400px', marginBottom: '55px'}} /// these are optional style, it is not necessary
     >
         <FrontSide
             style={{
                 background: `url(${album.img_url})`,
                 backgroundSize: "contain",
+                
             }}
         >
         </FrontSide>
@@ -30,6 +42,8 @@ function FavCard({album, onDeleteFavorite}) {
              </Button>
         </BackSide>
     </Flippy>
+    </div>
+    </StyleRoot>
     )
 }
 

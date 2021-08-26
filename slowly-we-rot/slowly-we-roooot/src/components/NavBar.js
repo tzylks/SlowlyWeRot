@@ -1,10 +1,7 @@
-import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import { InputBase } from '@material-ui/core'
 import BlurOnIcon from '@material-ui/icons/BlurOn';
 import SearchIcon from '@material-ui/icons/Search';
@@ -12,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import AlbumIcon from '@material-ui/icons/Album';
 import LoyaltySharpIcon from '@material-ui/icons/LoyaltySharp';
 import LibraryMusicSharpIcon from '@material-ui/icons/LibraryMusicSharp';
+import {IconButton} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar({ search, setSearch }) {
 
-
   const classes = useStyles();
 
   function onChangeSearch(event) {
@@ -68,8 +65,8 @@ function NavBar({ search, setSearch }) {
   }
 
   return (
-
-    <AppBar position="sticky" >
+    <div style={{cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto;"}}>
+    <AppBar position="sticky" style={{cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto;"}} >
       <Toolbar>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <BlurOnIcon />
@@ -88,7 +85,7 @@ function NavBar({ search, setSearch }) {
           />
         </div>
         <NavLink to='/albums'>
-          <AlbumIcon color="secondary" style={{paddingRight: "15px", color: "white"}} />
+          <AlbumIcon style={{paddingRight: "15px", color: "white"}} />
         </NavLink>
         <NavLink to='/favorites'>
           <LoyaltySharpIcon color="secondary" style={{paddingRight: "15px", color: "white"}}/>
@@ -98,6 +95,7 @@ function NavBar({ search, setSearch }) {
         </NavLink>
       </Toolbar>
     </AppBar>
+    </div>
 
   )
 }

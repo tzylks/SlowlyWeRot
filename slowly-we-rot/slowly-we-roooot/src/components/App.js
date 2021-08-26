@@ -9,6 +9,8 @@ import { ThemeProvider } from "@material-ui/core"
 import theme from "./theme.js"
 import Spring from './Spring'
 import Deck from "./CardsDrag.tsx"
+import ReactAudioPlayer from 'react-audio-player';
+import audio from "../audio.mp3"
 
 
 
@@ -18,6 +20,8 @@ function App() {
   const [albums, setAlbums] = useState([])
   const [favorites, setFavorites] = useState([])
   const [search, setSearch] = useState("");
+  const [open, setOpen] = useState(false);
+
 
   useEffect(() => {
     fetch("http://localhost:9292/albums")
@@ -32,12 +36,17 @@ function App() {
   }, []);
 
   function onDelete(id) {
-    fetch(`http://localhost:9292/albums/${id}`, {
+    
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      fetch(`http://localhost:9292/albums/${id}`, {
       method: "DELETE",
     })
 
     const filteredAlbums = albums.filter(album => album.id !== id)
     setAlbums(filteredAlbums)
+    setOpen(false)
+    }
+    
   }
 
   function onDeleteFavorite(id) {
@@ -58,10 +67,16 @@ function App() {
 
   return (
     <>
-      <div style={{ backgroundColor: "#b9f6ca" }}>
+      <div style={{ cursor: "url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39" }}>
         <ThemeProvider theme={theme}>
-          <div style={{ backgroundColor: "#b9f6ca" }}>
+          <div style={{ backgroundColor: "rgba(185, 246, 202, 1)"}}>
             <NavBar search={search} setSearch={setSearch} />
+            <ReactAudioPlayer
+              src={audio}
+              autoPlay
+              controls
+              style={{marginLeft: "40vw", marginTop: "25px", color: "black"}}
+            />
             <Switch>
               <Route
                 path='/addalbum'
@@ -76,15 +91,16 @@ function App() {
               <Route
                 path='/albums'
                 component={() =>
-                  <AlbumsContainer albums={albumsToDisplay} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} />}
+                  <AlbumsContainer albums={albumsToDisplay} setFavorites={setFavorites} favorites={favorites} onDelete={onDelete} 
+                  open={open} setOpen={setOpen}/>}
               />
-               <Route
+              <Route
                 path='/'
                 component={() =>
                   <Deck />}
               />
             </Switch>
-            <Footer stye={{bottom: 0}} />
+            <Footer stye={{ bottom: 0 }} />
           </div>
         </ThemeProvider>
       </div>

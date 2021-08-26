@@ -56,7 +56,7 @@ function Deck() {
         </animated.div>
       ))}
      <NavLink to="/albums" style={{textDecoration: "none"}}>
-      <p style={{marginLeft: "40vw", marginRight: "auto", paddingTop: "30vh", fontFamily: 'Metal Mania', fontSize: '54px', textDecoration: "none"}}>Slowly We Rot</p>
+      <p style={{marginLeft: "40vw", marginRight: "auto", paddingTop: "25vh", fontFamily: 'Metal Mania', fontSize: '54px', textDecoration: "none"}}>Slowly We Rot</p>
       </NavLink>
       </div>
     </>

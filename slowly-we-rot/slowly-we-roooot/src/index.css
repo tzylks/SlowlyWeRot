@@ -6,6 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39, auto;
+  background: white;
 }
 
 code {
@@ -15,3 +17,20 @@ code {
 
 a:visited { text-decoration: none; color:black; }
 
+.MuiContainer-root {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@media (min-width: 600px){
+.MuiContainer-root {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
