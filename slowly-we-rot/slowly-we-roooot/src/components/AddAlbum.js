@@ -1,10 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 import { TextField, Container, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core"
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
-function AddAlbum({setAlbums, albums}) {
+function AddAlbum({ setAlbums, albums }) {
 
     const [formData, setFormData] = useState({
         artist: "",
@@ -31,7 +31,7 @@ function AddAlbum({setAlbums, albums}) {
             img_url: formData.img_url
         }
 
-        let config ={
+        let config = {
             method: 'POST',
             headers: {
                 'Content-Type': "application/json"
@@ -40,78 +40,82 @@ function AddAlbum({setAlbums, albums}) {
         }
 
         fetch('http://localhost:9292/albums', config)
-        .then(res => res.json())
-        .then(data => {
-            setAlbums([...albums, data]);
-            history.push("/albums")
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                setAlbums([...albums, data]);
+                history.push("/albums")
+            })
+
 
     }
-    
+
     return (
         <>
 
-               
 
-                <Container color="secondary">
+
+            <Container color="primary">
                 <div
                     style={{
-                        marginTop: "5%",
+                        marginTop: "3%",
                         width: "100%",
                         textAlign: "center",
                         color: "#000",
                         justifyContent: "center",
                         fontFamily: 'Metal Mania',
-                        backgroundColor: 'black'
+                        backgroundColor: 'black',
+                        
                     }}
                 >
                     <span
                         style={{
-                            backgroundColor: "#000",
-                            color: "#b9f6ca",
+                            backgroundColor: "",
+                            color: "white",
                             padding: "18px",
-                            fontSize: "25px",
-                            letterSpacing: "10px",
+                            fontSize: "100px",
+                            letterSpacing: "40px",
                             marginLeft: "auto",
-                            marginRight: "auto"
+                            marginRight: "auto",
+                            lineHeight: "100px"
                         }}
                     >
                         Add Album</span>
                 </div>
                 <form className="form"
                     onSubmit={onSubmitForm}
-                    style={{color: 'black'}}
+                    style={{ color: 'black' }}
                 >
-                    <Grid container spacing={4} color="primary">
-                    <Grid item xs={12}
-                        style={{ 
-                            color: "black",
-                            background: "white", 
-                            textAlign: "center", 
-                            marginLeft: "auto", 
-                            marginRight: "auto", 
-                            marginTop: "10vh" 
-                        }}
+                    <Grid container spacing={4}>
+                        <Grid item xs={12}
+                            style={{
+                                color: "black",
+                                opacity: "1.0",
+                                textAlign: "center",
+                                marginLeft: "auto",
+                                marginRight: "auto",
+                                marginTop: "5vh"
+                            }}
                         >
                             <TextField
                                 fullWidth
                                 label="Arist"
                                 id="artist"
                                 variant="outlined"
+                                color="primary"
                                 required
                                 value={formData.artist}
                                 onChange={onChangeForm}
+                                style={{background: "white"}}
                             />
                         </Grid>
                         <Grid item xs={12}
-                        style={{ 
-                            background: "white", 
-                            textAlign: "center", 
-                            marginLeft: "auto", 
-                            marginRight: "auto", 
-                            
-                        }}
+                            style={{
+                                background: "#b9f6ca",
+                                textAlign: "center",
+                                marginLeft: "auto",
+                                marginRight: "auto",
+
+                            }}
                         >
                             <TextField
                                 fullWidth
@@ -119,17 +123,19 @@ function AddAlbum({setAlbums, albums}) {
                                 id="name"
                                 variant="outlined"
                                 required
+                                color="primary"
                                 value={formData.name}
                                 onChange={onChangeForm}
+                                style={{background: "white"}}
                             />
                         </Grid>
                         <Grid item xs={12}
-                        style={{ 
-                            background: "white", 
-                            textAlign: "center", 
-                            marginLeft: "auto", 
-                            marginRight: "auto"
-                        }}
+                            style={{
+                                
+                                textAlign: "center",
+                                marginLeft: "auto",
+                                marginRight: "auto"
+                            }}
                         >
                             <TextField
                                 fullWidth
@@ -138,19 +144,21 @@ function AddAlbum({setAlbums, albums}) {
                                 rows="1"
                                 id="length"
                                 required
+                                color="primary"
                                 variant="outlined"
                                 value={formData.length}
                                 onChange={onChangeForm}
+                                style={{background: "white"}}
                             />
 
                         </Grid>
                         <Grid item xs={12}
-                        style={{ 
-                            background: "white", 
-                            textAlign: "center", 
-                            marginLeft: "auto", 
-                            marginRight: "auto"
-                        }}
+                            style={{
+                                
+                                textAlign: "center",
+                                marginLeft: "auto",
+                                marginRight: "auto"
+                            }}
                         >
                             <TextField
                                 fullWidth
@@ -159,19 +167,21 @@ function AddAlbum({setAlbums, albums}) {
                                 rows="1"
                                 id="rating"
                                 required
+                                color="primary"
                                 variant="outlined"
                                 value={formData.rating}
                                 onChange={onChangeForm}
+                                style={{background: "white"}}
                             />
 
                         </Grid>
                         <Grid item xs={12}
-                        style={{ 
-                            background: "white", 
-                            textAlign: "center", 
-                            marginLeft: "auto", 
-                            marginRight: "auto"
-                        }}
+                            style={{
+                             
+                                textAlign: "center",
+                                marginLeft: "auto",
+                                marginRight: "auto"
+                            }}
                         >
                             <TextField
                                 fullWidth
@@ -180,20 +190,24 @@ function AddAlbum({setAlbums, albums}) {
                                 rows="1"
                                 id="img_url"
                                 required
+                                color="primary"
                                 variant="outlined"
                                 value={formData.image_url}
                                 onChange={onChangeForm}
+                                style={{background: "white"}}
                             />
                         </Grid>
-                        <Button type="submit" variant="contained" color="primary" className="form__custom-button" style={{ marginLeft: "auto",
-                    marginRight: "auto", marginTop: "30px", marginBottom: "30px" }}>
+                        <Button type="submit" variant="contained" color="primary" className="form__custom-button" style={{
+                            marginLeft: "auto",
+                            marginRight: "auto", marginTop: "30px", marginBottom: "30px"
+                        }}>
                             Sumbit Album
                         </Button>
 
                     </Grid>
                 </form>
-                </Container>
-            
+            </Container>
+
         </>
 
 

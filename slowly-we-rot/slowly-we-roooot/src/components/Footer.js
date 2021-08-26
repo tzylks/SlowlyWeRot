@@ -1,13 +1,13 @@
-import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+
 import IconButton from '@material-ui/core/IconButton';
-import BlurOnIcon from '@material-ui/icons/BlurOn';
-import { NavLink } from 'react-router-dom';
+
 import GitHubIcon from '@material-ui/icons/GitHub';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 
 
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(0),
     },
     title: {
       flexGrow: 1,
@@ -32,12 +32,12 @@ function Footer() {
         <AppBar position="sticky" style={{alignItems: 'center'}} >
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <BlurOnIcon />
+            <EmojiPeopleIcon />
           </IconButton>
-          <Typography variant="h6" color="secondary" className={classes.title} style={{justifyContent: 'center', marginRight: 'auto'}}>
+          <Typography variant="h6" className={classes.title} style={{justifyContent: 'center', marginRight: 'auto', color: "white"}}>
             Github
           </Typography>
-          <IconButton onClick={() => {window.location.href = "https://github.com/tzylks";}}><GitHubIcon color="secondary" fontSize="small" /></IconButton>
+          <IconButton onClick={() => {window.location.href = "https://github.com/tzylks";}}><GitHubIcon fontSize="small" style={{color: "white"}} /></IconButton>
         </Toolbar>
       </AppBar>
 

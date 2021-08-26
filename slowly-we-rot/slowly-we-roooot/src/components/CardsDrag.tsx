@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
-
 import styles from '../styles.module.css'
+import { NavLink } from "react-router-dom"
 
 const cards = [
   "https://blogimg.goo.ne.jp/user_image/76/2c/378b1493ac71b47389b65bdd8909006d.jpg",
   'https://f4.bcbits.com/img/0009666121_10.jpg',
   "https://media.pitchfork.com/photos/5929a0fb13d197565213850b/1:1/w_600/7e252f9a.jpg",
-  "https://img.discogs.com/hlJBVk1BbDzCCAZbyWMIcZJ9TRU=/fit-in/600x615/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-823469-1523384332-3216.jpeg.jpg",
+  "https://4.bp.blogspot.com/-OLVVP283Oqk/TbQ_DBNBz6I/AAAAAAAAMR8/oqWC45BG9hE/s1600/R-928632-1184880051.jpeg",
   "https://pbs.twimg.com/media/DekNnHTXkAMlzHD.jpg",
   'https://f4.bcbits.com/img/a2645270153_10.jpgS',
 ]
@@ -55,7 +55,9 @@ function Deck() {
           />
         </animated.div>
       ))}
-      <p style={{marginLeft: "40vw", marginRight: "auto", paddingTop: "35vh", fontFamily: 'Metal Mania', fontSize: '54px'}}>Slowly We Rot</p>
+     <NavLink to="/albums" style={{textDecoration: "none"}}>
+      <p style={{marginLeft: "40vw", marginRight: "auto", paddingTop: "30vh", fontFamily: 'Metal Mania', fontSize: '54px', textDecoration: "none"}}>Slowly We Rot</p>
+      </NavLink>
       </div>
     </>
   )

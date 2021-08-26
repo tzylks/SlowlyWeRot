@@ -18,10 +18,11 @@
 
   .container1 {
     background: #b9f6ca;
-    cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png') 39 39,
+    cursor: url('https://img.icons8.com/plasticine/100/000000/cursor.png') 39 39,
       auto;
     height: 77vh;
     padding-bottom: 10px;
+    
   }
   .deck {
     position: absolute;
@@ -32,15 +33,16 @@
     align-items: center;
     justify-content: center;
     touch-action: none;
+    background-size: contain;
   }
   
   .deck > div {
     background-color: black;
-    background-size: auto 85%;
+    background-size: auto 80%;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 45vh;
-    max-width: 300px;
+    width: 45vw;
+    max-width: 500px;
     height: 85vh;
     max-height: 570px;
     will-change: transform;

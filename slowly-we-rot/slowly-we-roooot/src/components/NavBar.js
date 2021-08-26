@@ -74,7 +74,7 @@ function NavBar({ search, setSearch }) {
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <BlurOnIcon />
         </IconButton>
-        <Typography variant="h6" color="secondary" className={classes.title}>
+        <Typography component={NavLink} to="/" variant="h6" style={{color: "white"}} className={classes.title} style={{textDecoration: 'none', color: "white"}}>
           Slowly We Rot
         </Typography>
         <div className={classes.search}>
@@ -88,13 +88,13 @@ function NavBar({ search, setSearch }) {
           />
         </div>
         <NavLink to='/albums'>
-          <AlbumIcon color="secondary" style={{paddingRight: "15px"}} />
+          <AlbumIcon color="secondary" style={{paddingRight: "15px", color: "white"}} />
         </NavLink>
         <NavLink to='/favorites'>
-          <LoyaltySharpIcon color="secondary" style={{paddingRight: "15px"}}/>
+          <LoyaltySharpIcon color="secondary" style={{paddingRight: "15px", color: "white"}}/>
         </NavLink>
         <NavLink to="/addalbum">
-          <LibraryMusicSharpIcon color="secondary" style={{paddingRight: "15px"}}/>
+          <LibraryMusicSharpIcon color="secondary" style={{paddingRight: "15px", color: "white"}}/>
         </NavLink>
       </Toolbar>
     </AppBar>
